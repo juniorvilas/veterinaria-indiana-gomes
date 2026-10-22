@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F4F7F6;
+  --color-paper-2: #E7EFEC;
+  --color-ink: #1D2B2F;
+  --color-ink-soft: #4A5B5F;
+  --color-brand: #0E6B63;
+  --color-brand-deep: #0A4C47;
+  --color-mint: #7FC3B9;
+  --color-wine: #7E1A2C;
+  --color-blush: #F1B9CF;
+  --color-orchid: #B8478F;
+  --color-line: #CFDCD8;
+
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+
+  --animate-house-in: house-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes house-in {
+    from { clip-path: polygon(50% 100%, 100% 100%, 100% 100%, 0 100%, 0 100%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    @apply bg-paper font-body text-[1.0625rem] leading-relaxed text-ink antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display text-balance;
+  }
+
+  p { @apply text-pretty; }
+
+  :focus-visible {
+    @apply rounded outline-3 outline-offset-3 outline-orchid;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@utility wrap {
+  @apply mx-auto w-full max-w-[1120px] px-[clamp(16px,4vw,40px)];
+}
+
+@utility section-y {
+  @apply py-[clamp(64px,10vw,120px)];
+}
+
+/* Recorte em formato de casinha, assinatura visual do atendimento a domicílio */
+@utility clip-house {
+  clip-path: polygon(50% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+}
