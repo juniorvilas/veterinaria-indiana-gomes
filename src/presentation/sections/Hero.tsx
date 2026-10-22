@@ -15,7 +15,7 @@ export function Hero() {
             Só cães e gatos
           </p>
           <h1 className="max-w-[13ch] text-[clamp(2.6rem,6.4vw,4.75rem)] font-extrabold leading-none tracking-[-0.035em]">
-            A consulta veterinária que vai até a sua casa.
+            A consulta <span className="text-brand">veterinária</span> que vai até a sua casa.
           </h1>
           <p className="mt-6 max-w-[34em] text-[clamp(1.0625rem,1.6vw,1.25rem)] text-ink-soft">
             Atendimento domiciliar em Lauro de Freitas, Salvador e região metropolitana. Seu pet é examinado com calma,
@@ -40,8 +40,8 @@ export function Hero() {
           </p>
         </div>
 
-        <figure className="relative m-0 aspect-[3/4] w-[min(86%,400px)] justify-self-center min-[901px]:w-[min(100%,440px)] min-[901px]:justify-self-end">
-          <div aria-hidden="true" className="clip-house absolute inset-0 translate-x-[18px] translate-y-[18px] bg-brand" />
+        <figure className="relative m-0 aspect-3/4 w-[min(86%,400px)] justify-self-center min-[901px]:w-[min(100%,440px)] min-[901px]:justify-self-end">
+          <div aria-hidden="true" className="clip-house absolute inset-0 translate-x-4.5 translate-y-4.5 bg-brand" />
           <ResponsivePhoto
             name="dra-indiana-gato"
             widths={[560, 900]}

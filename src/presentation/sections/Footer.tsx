@@ -6,10 +6,16 @@ export function Footer() {
 
   return (
     <footer className="bg-ink pt-12 pb-30 text-[0.9375rem] text-white/75 min-[761px]:pb-12">
-      <div className="wrap flex flex-wrap justify-between gap-8 [&_a]:text-white">
+      <div className="wrap flex flex-wrap items-end justify-between gap-8 [&_a]:text-white">
         <p>
-          <strong className="text-white">{veterinarian.displayName}</strong>
-          <br />
+          <img
+            src="/img/logo-light.png"
+            alt={`${veterinarian.displayName}, médica veterinária`}
+            width={220}
+            height={106}
+            loading="lazy"
+            className="mb-5"
+          />
           Veterinária a domicílio para cães e gatos
           <br />
           {practice.areas.map((area) => area.name).join(', ')}, BA

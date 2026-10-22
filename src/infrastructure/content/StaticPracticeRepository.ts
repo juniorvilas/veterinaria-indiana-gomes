@@ -42,6 +42,8 @@ const practice: HomeVisitPractice = {
     instagram: InstagramHandle.create('@indianagomes_vet'),
   },
 
+  location: { city: 'Lauro de Freitas', region: 'BA', country: 'BR' },
+
   species: ['dog', 'cat'],
 
   areas: [{ name: 'Lauro de Freitas' }, { name: 'Salvador' }, { name: 'Região metropolitana' }],

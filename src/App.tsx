@@ -13,10 +13,7 @@ import { Services } from '@/presentation/sections/Services'
 export function App() {
   return (
     <>
-      <a
-        href="#conteudo"
-        className="absolute -top-16 left-4 z-50 bg-ink px-4 py-2.5 text-white focus:top-3"
-      >
+      <a href="#conteudo" className="absolute -top-16 left-4 z-50 bg-ink px-4 py-2.5 text-white focus:top-3">
         Pular para o conteúdo
       </a>
       <Header />

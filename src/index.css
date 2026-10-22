@@ -5,9 +5,10 @@
   --color-paper-2: #E7EFEC;
   --color-ink: #1D2B2F;
   --color-ink-soft: #4A5B5F;
-  --color-brand: #0E6B63;
-  --color-brand-deep: #0A4C47;
-  --color-mint: #7FC3B9;
+  /* Verdes tirados da logo */
+  --color-brand: #24604F;
+  --color-brand-deep: #1B4B40;
+  --color-mint: #8FCBB4;
   --color-wine: #7E1A2C;
   --color-blush: #F1B9CF;
   --color-orchid: #B8478F;

@@ -14,8 +14,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-line bg-paper/92 backdrop-blur-md">
       <div className="wrap flex min-h-18 items-center gap-6">
-        <a href="#" className="mr-auto flex items-center gap-2.5 font-display text-[1.0625rem] font-bold leading-tight text-ink no-underline">
-          <img src="/img/favicon.svg" alt="" width={36} height={36} />
+        <a href="#" className="mr-auto flex items-center gap-3 font-display text-[1.0625rem] font-bold leading-tight text-ink no-underline">
+          <img src="/img/logo-mark.png" alt="" width={36} height={46} className="h-11.5 w-auto" />
           <span>
             {practice.veterinarian.displayName}
             <small className="block font-body text-[0.8125rem] font-medium text-ink-soft">Veterinária a domicílio</small>

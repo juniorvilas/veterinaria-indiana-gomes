@@ -1,0 +1,13 @@
+{
+  "name": "Dra. Indiana Gomes – Veterinária a domicílio",
+  "short_name": "Dra. Indiana",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F7F6",
+  "theme_color": "#1B4B40",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

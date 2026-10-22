@@ -27,6 +27,15 @@ export interface FaqItem {
   answer: string
 }
 
+/** Cidade-base do atendimento, usada no endereço público. */
+export interface BaseLocation {
+  city: string
+  /** Sigla do estado, ex.: "BA" */
+  region: string
+  /** Código ISO do país, ex.: "BR" */
+  country: string
+}
+
 export interface ContactChannels {
   whatsapp: PhoneNumber
   instagram: InstagramHandle
@@ -39,6 +48,7 @@ export interface ContactChannels {
 export interface HomeVisitPractice {
   veterinarian: Veterinarian
   contacts: ContactChannels
+  location: BaseLocation
   species: readonly Species[]
   areas: readonly ServiceArea[]
   services: readonly VetService[]

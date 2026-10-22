@@ -1,17 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { App } from '@/App'
-import { StaticPracticeRepository } from '@/infrastructure/content/StaticPracticeRepository'
-import { PracticeProvider } from '@/presentation/context/PracticeContext'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import { Root } from '@/Root'
 import './index.css'
 
-// Raiz de composição: escolhe a implementação concreta do repositório.
-const practice = new StaticPracticeRepository().get()
+const container = document.getElementById('root')!
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <PracticeProvider practice={practice}>
-      <App />
-    </PracticeProvider>
-  </StrictMode>,
-)
+// Em produção o HTML já vem pré-renderizado; no dev a raiz chega vazia.
+if (container.firstElementChild) {
+  hydrateRoot(container, <Root />)
+} else {
+  createRoot(container).render(<Root />)
+}
