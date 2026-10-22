@@ -20,19 +20,32 @@ export function Footer() {
           <br />
           {practice.areas.map((area) => area.name).join(', ')}, BA
         </p>
-        <p>
-          <a href={links.whatsapp()} target="_blank" rel="noopener noreferrer">
-            WhatsApp {contacts.whatsapp.display}
-          </a>
-          <br />
-          <a href={links.instagram} target="_blank" rel="noopener noreferrer">
-            Instagram {contacts.instagram.display}
-          </a>
-          <br />
-          <a href={veterinarian.linkedinUrl} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </p>
+        <div>
+          <p>
+            <a href={links.whatsapp()} target="_blank" rel="noopener noreferrer">
+              WhatsApp {contacts.whatsapp.display}
+            </a>
+            <br />
+            <a href={links.instagram} target="_blank" rel="noopener noreferrer">
+              Instagram {contacts.instagram.display}
+            </a>
+            <br />
+            <a href={veterinarian.linkedinUrl} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </p>
+          <p className="mt-8 text-sm text-white/60">
+            Desenvolvido por{' '}
+            <a
+              href="https://www.carlindojunior.xyz/"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold underline-offset-3 hover:underline"
+            >
+              Junior
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )

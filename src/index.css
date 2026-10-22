@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #F4F7F6;
-  --color-paper-2: #E7EFEC;
-  --color-ink: #1D2B2F;
-  --color-ink-soft: #4A5B5F;
-  /* Verdes tirados da logo */
-  --color-brand: #24604F;
-  --color-brand-deep: #1B4B40;
-  --color-mint: #8FCBB4;
-  --color-wine: #7E1A2C;
-  --color-blush: #F1B9CF;
+  /* Tema roxo pastel (versão anterior em verde: brand #24604F, brand-deep #1B4B40) */
+  --color-paper: #FAF8FD;
+  --color-paper-2: #F2EDFA;
+  --color-ink: #2B2438;
+  --color-ink-soft: #5F566F;
+  /* Mais claro possível mantendo texto branco legível (contraste ≥ 4.5:1) */
+  --color-brand: #8566B8;
+  --color-brand-deep: #6A5494;
+  --color-mint: #E2D6F7;
+  --color-wine: #9A5A8E;
+  --color-blush: #F8D7EB;
   --color-orchid: #B8478F;
-  --color-line: #CFDCD8;
+  --color-line: #E4DCF0;
 
   --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
   --font-body: "Figtree", system-ui, sans-serif;
