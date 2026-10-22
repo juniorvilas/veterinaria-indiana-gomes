@@ -4,6 +4,7 @@ import { buildSeoMetadata, buildStructuredData, normalizeSiteUrl } from './build
 
 const practice = new StaticPracticeRepository().get()
 const siteUrl = 'https://exemplo.com.br/'
+const referenceYear = 2026
 
 type Node = Record<string, unknown> & { '@type': string }
 const graphOf = (data: Record<string, unknown>) => data['@graph'] as Node[]
@@ -23,25 +24,29 @@ describe('normalizeSiteUrl', () => {
 
 describe('buildSeoMetadata', () => {
   it('coloca serviço, cidades e nome no título', () => {
-    const { title } = buildSeoMetadata(practice, siteUrl)
+    const { title } = buildSeoMetadata(practice, { siteUrl, referenceYear })
     expect(title).toBe('Veterinária a domicílio em Lauro de Freitas e Salvador | Dra. Indiana Gomes')
   })
 
   it('usa URLs absolutas quando o domínio está configurado', () => {
-    const metadata = buildSeoMetadata(practice, siteUrl)
+    const metadata = buildSeoMetadata(practice, { siteUrl, referenceYear })
     expect(metadata.canonicalUrl).toBe(siteUrl)
     expect(metadata.imageUrl).toBe('https://exemplo.com.br/img/og-image.jpg')
   })
 
+  it('cita o tempo de atuação na descrição', () => {
+    expect(buildSeoMetadata(practice, { siteUrl, referenceYear }).description).toContain('veterinária há 8 anos')
+  })
+
   it('omite canonical sem domínio configurado', () => {
-    const metadata = buildSeoMetadata(practice)
+    const metadata = buildSeoMetadata(practice, { referenceYear })
     expect(metadata.canonicalUrl).toBeUndefined()
     expect(metadata.imageUrl).toBe('/img/og-image.jpg')
   })
 })
 
 describe('buildStructuredData', () => {
-  const data = buildStructuredData(practice, siteUrl)
+  const data = buildStructuredData(practice, { siteUrl, referenceYear })
 
   it('descreve o atendimento veterinário com telefone, cidade e áreas', () => {
     const care = nodeOfType(data, 'VeterinaryCare')

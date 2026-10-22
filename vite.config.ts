@@ -18,6 +18,8 @@ function seoHeadInDev(): Plugin {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), seoHeadInDev()],
+  // Mesmo ano no pré-render e no navegador, evitando diferença na hidratação
+  define: { __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()) },
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },

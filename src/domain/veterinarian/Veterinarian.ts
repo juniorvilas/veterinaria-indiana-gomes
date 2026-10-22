@@ -12,9 +12,16 @@ export interface Veterinarian {
   role: string
   /** Resumo das credenciais em uma frase, para dar confiança logo no topo */
   credentials: string
+  /** Ano em que começou a atuar como veterinária */
+  practicingSince: number
   bio: string[]
   education: readonly Education[]
   linkedinUrl: string
+}
+
+/** Anos de atuação até o ano de referência (nunca negativo). */
+export function yearsOfPractice(veterinarian: Pick<Veterinarian, 'practicingSince'>, referenceYear: number): number {
+  return Math.max(0, referenceYear - veterinarian.practicingSince)
 }
 
 /** Formação da mais recente para a mais antiga. */

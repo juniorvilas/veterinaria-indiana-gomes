@@ -9,7 +9,8 @@ const practice: HomeVisitPractice = {
     fullName: 'Dra. Indiana Gomes da Silva',
     role: 'Médica veterinária de cães e gatos',
     credentials:
-      'Médica veterinária formada pela UFRB, mestre pela mesma universidade e com 2 anos de aprimoramento em Clínica Médica de Pequenos Animais.',
+      'Formada pela UFRB, mestre pela mesma universidade e com 2 anos de aprimoramento em Clínica Médica de Pequenos Animais.',
+    practicingSince: 2018,
     education: [
       {
         title: 'Mestrado Profissional em Defesa Agropecuária',

@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server'
 import { buildSeoMetadata, buildStructuredData } from '@/application/use-cases/buildSeo'
-import { googleSiteVerification, practice, siteUrl } from '@/composition'
+import { googleSiteVerification, practice, referenceYear, siteUrl } from '@/composition'
 import { Root } from '@/Root'
 import { renderRobotsTxt, renderSitemapXml } from '@/presentation/seo/crawlerFiles'
 import { renderHead } from '@/presentation/seo/renderHead'
@@ -13,8 +13,8 @@ export function renderAppHtml(): string {
 
 export function renderHeadHtml(): string {
   return renderHead({
-    metadata: buildSeoMetadata(practice, siteUrl),
-    structuredData: buildStructuredData(practice, siteUrl),
+    metadata: buildSeoMetadata(practice, { siteUrl, referenceYear }),
+    structuredData: buildStructuredData(practice, { siteUrl, referenceYear }),
     googleSiteVerification,
   })
 }

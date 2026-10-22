@@ -4,7 +4,7 @@ import { ResponsivePhoto } from '@/presentation/components/ResponsivePhoto'
 import { SectionHeading } from '@/presentation/components/SectionHeading'
 
 export function About() {
-  const { practice, links } = usePractice()
+  const { practice, links, experienceYears } = usePractice()
   const { fullName, role, bio, education, linkedinUrl } = practice.veterinarian
 
   return (
@@ -24,7 +24,9 @@ export function About() {
           <SectionHeading id="sobre-titulo">Quem vai cuidar do seu pet</SectionHeading>
           <p className="mt-6 font-display text-[1.375rem] font-bold leading-tight text-wine">
             {fullName}
-            <span className="block font-body text-base font-medium text-ink-soft">{role}</span>
+            <span className="block font-body text-base font-medium text-ink-soft">
+              {role} há {experienceYears} anos
+            </span>
           </p>
           {bio.map((paragraph) => (
             <p key={paragraph.slice(0, 24)} className="mt-4.5 max-w-[36em]">

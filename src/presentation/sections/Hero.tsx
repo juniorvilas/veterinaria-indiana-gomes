@@ -2,10 +2,8 @@ import { usePractice } from '@/presentation/context/PracticeContext'
 import { ButtonLink } from '@/presentation/components/ButtonLink'
 import { ResponsivePhoto } from '@/presentation/components/ResponsivePhoto'
 
-const lowerFirst = (text: string) => text.charAt(0).toLowerCase() + text.slice(1)
-
 export function Hero() {
-  const { practice, links } = usePractice()
+  const { practice, links, experienceYears } = usePractice()
 
   return (
     <section className="pt-[clamp(40px,7vw,96px)] pb-[clamp(64px,10vw,120px)]">
@@ -22,7 +20,8 @@ export function Hero() {
             no lugar onde ele se sente seguro, sem caixa de transporte nem sala de espera.
           </p>
           <p className="mt-4 mb-8 max-w-[34em] border-l-3 border-wine pl-3.5 font-medium">
-            Com a {practice.veterinarian.displayName}: {lowerFirst(practice.veterinarian.credentials)}
+            Com a {practice.veterinarian.displayName}, veterinária há {experienceYears} anos.{' '}
+            {practice.veterinarian.credentials}
           </p>
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={links.whatsapp()} icon="whatsapp" className="max-[760px]:w-full">

@@ -1,5 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import { educationByRecency, type Education } from './Veterinarian'
+import { educationByRecency, yearsOfPractice, type Education } from './Veterinarian'
+
+describe('yearsOfPractice', () => {
+  it('conta os anos desde o início da atuação', () => {
+    expect(yearsOfPractice({ practicingSince: 2018 }, 2026)).toBe(8)
+    expect(yearsOfPractice({ practicingSince: 2018 }, 2027)).toBe(9)
+  })
+
+  it('nunca retorna valor negativo', () => {
+    expect(yearsOfPractice({ practicingSince: 2018 }, 2010)).toBe(0)
+  })
+})
 
 const course = (title: string, startYear: number, endYear: number): Education => ({
   title,
