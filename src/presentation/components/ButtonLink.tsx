@@ -8,12 +8,12 @@ const variants: Record<Variant, string> = {
   primary: 'border-brand bg-brand text-white hover:border-brand-deep hover:bg-brand-deep',
   ghost: 'border-brand bg-transparent text-brand-deep hover:bg-paper-2',
   light: 'border-white bg-white text-brand-deep hover:border-paper-2 hover:bg-paper-2',
-  'outline-light': 'border-white/60 bg-transparent text-white hover:border-white hover:bg-white/10',
+  'outline-light': 'border-white/70 bg-transparent text-white hover:border-white hover:bg-white/10',
 }
 
 const sizes: Record<Size, string> = {
-  md: 'min-h-13 px-6 text-base',
-  sm: 'min-h-[42px] px-[18px] text-[0.9375rem]',
+  md: 'min-h-13 px-6 text-body',
+  sm: 'min-h-11 px-4.5 text-small',
 }
 
 interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -34,7 +34,7 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   return (
     <a
-      className={`inline-flex items-center justify-center gap-2.5 rounded-full border-2 font-semibold leading-none no-underline transition-colors ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2.5 rounded-full border-2 font-semibold leading-none no-underline transition-[background-color,border-color,color,transform] duration-150 ease-out active:scale-[0.97] ${variants[variant]} ${sizes[size]} ${className}`}
       {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
       {...rest}
     >

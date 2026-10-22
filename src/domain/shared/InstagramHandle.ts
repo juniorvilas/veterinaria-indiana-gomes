@@ -21,4 +21,9 @@ export class InstagramHandle {
   get url(): string {
     return `https://www.instagram.com/${this.username}/`
   }
+
+  /** Abre direto a conversa no Direct, em vez da grade do perfil */
+  get directUrl(): string {
+    return `https://ig.me/m/${this.username}`
+  }
 }

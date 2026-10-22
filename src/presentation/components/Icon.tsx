@@ -1,6 +1,7 @@
 import type { ReactNode, SVGProps } from 'react'
+import type { BenefitKind } from '@/domain/practice/HomeVisitPractice'
 
-export type IconName = 'whatsapp' | 'instagram' | 'calm' | 'no-commute' | 'routine'
+export type IconName = 'whatsapp' | 'instagram' | 'linkedin' | 'pin' | BenefitKind
 
 const stroke = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' } as const
 
@@ -51,11 +52,29 @@ const paths: Record<IconName, { viewBox: string; body: ReactNode }> = {
     viewBox: '0 0 32 32',
     body: (
       <>
-        <path {...stroke} d="M4 15 16 5l12 10M7 13v14h18V13" />
-        <circle fill="currentColor" cx="16" cy="20.5" r="2.2" />
-        <circle fill="currentColor" cx="12.6" cy="17" r="1.2" />
-        <circle fill="currentColor" cx="16" cy="15.6" r="1.2" />
-        <circle fill="currentColor" cx="19.4" cy="17" r="1.2" />
+        <path {...stroke} d="M4 16h24c0 6-5.4 10-12 10S4 22 4 16Z" />
+        <circle fill="currentColor" cx="11.5" cy="12" r="1.8" />
+        <circle fill="currentColor" cx="16" cy="9.5" r="1.8" />
+        <circle fill="currentColor" cx="20.5" cy="12" r="1.8" />
+      </>
+    ),
+  },
+  pin: {
+    viewBox: '0 0 24 24',
+    body: (
+      <>
+        <path {...stroke} d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" />
+        <circle fill="currentColor" cx="12" cy="10" r="2.4" />
+      </>
+    ),
+  },
+  linkedin: {
+    viewBox: '0 0 24 24',
+    body: (
+      <>
+        <rect {...stroke} strokeWidth={1.8} x="3.5" y="3.5" width="17" height="17" rx="4" />
+        <circle fill="currentColor" cx="8.2" cy="7.9" r="1.15" />
+        <path {...stroke} strokeWidth={1.8} d="M8.2 10.8V16.5M11.9 16.5v-5.7M11.9 13.4a2.4 2.4 0 0 1 4.8 0v3.1" />
       </>
     ),
   },

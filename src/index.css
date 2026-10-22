@@ -4,6 +4,7 @@
   /* Tema roxo pastel (versão anterior em verde: brand #24604F, brand-deep #1B4B40) */
   --color-paper: #FAF8FD;
   --color-paper-2: #F2EDFA;
+  --color-paper-3: #E9E1F6;
   --color-ink: #2B2438;
   --color-ink-soft: #5F566F;
   /* Mais claro possível mantendo texto branco legível (contraste ≥ 4.5:1) */
@@ -12,27 +13,60 @@
   --color-mint: #E2D6F7;
   --color-wine: #9A5A8E;
   --color-blush: #F8D7EB;
-  --color-orchid: #B8478F;
   --color-line: #E4DCF0;
 
   --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
   --font-body: "Figtree", system-ui, sans-serif;
 
-  --animate-house-in: house-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  /* Escala tipográfica: cinco tamanhos fazem todo o trabalho visível */
+  --text-display: clamp(2.2rem, 6vw, 5rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.035em;
+  --text-h2: clamp(2rem, 4vw, 3rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.2;
+  --text-lead: clamp(1.125rem, 1.5vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  /* Curvas fortes de saída: resposta imediata, assentamento suave */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --animate-house-in: house-in 0.9s var(--ease-out) both, settle 1.6s var(--ease-out) both;
 
   @keyframes house-in {
     from { clip-path: polygon(50% 100%, 100% 100%, 100% 100%, 0 100%, 0 100%); }
   }
+
+  @keyframes settle {
+    from { transform: scale(1.06); }
+  }
 }
 
 @layer base {
+  :root {
+    interpolate-size: allow-keywords;
+    --focus-ring: var(--color-brand-deep);
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 88px;
   }
 
   body {
-    @apply bg-paper font-body text-[1.0625rem] leading-relaxed text-ink antialiased;
+    @apply bg-paper font-body text-body text-ink antialiased;
+    caret-color: var(--color-brand);
+  }
+
+  ::selection {
+    background: var(--color-mint);
+    color: var(--color-ink);
   }
 
   h1, h2, h3 {
@@ -41,8 +75,22 @@
 
   p { @apply text-pretty; }
 
+  a { text-underline-offset: 3px; }
+
   :focus-visible {
-    @apply rounded outline-3 outline-offset-3 outline-orchid;
+    @apply rounded outline-3 outline-offset-3;
+    outline-color: var(--focus-ring);
+  }
+
+  /* FAQ abre e fecha com altura animada onde o navegador suporta */
+  details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size 320ms var(--ease-out), content-visibility 320ms allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -59,10 +107,35 @@
 }
 
 @utility section-y {
-  @apply py-[clamp(64px,10vw,120px)];
+  @apply py-[clamp(72px,11vw,144px)];
+}
+
+/* Seções de fundo escuro: foco branco para manter o contraste */
+@utility on-dark {
+  --focus-ring: #fff;
 }
 
 /* Recorte em formato de casinha, assinatura visual do atendimento a domicílio */
 @utility clip-house {
   clip-path: polygon(50% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+}
+
+/*
+ * Entrada das seções: só esconde quando o JS está ativo (classe "js" no <html>)
+ * e o usuário não pediu menos movimento. Sem JS, tudo aparece normalmente.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 600ms var(--ease-out),
+      transform 700ms var(--ease-out);
+    transition-delay: calc(var(--reveal-index, 0) * 80ms);
+  }
+
+  .js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
 }

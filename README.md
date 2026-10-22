@@ -38,6 +38,10 @@ scripts/
 
 As dependências apontam para dentro: `presentation → application → domain`. A `infrastructure` implementa as portas da aplicação.
 
+## Montador de mensagem
+
+Na seção "Como agendar", o tutor escolhe o pet (cão ou gato), o motivo (os serviços cadastrados) e o bairro, e o WhatsApp abre com a mensagem pronta. O texto é montado em `src/application/use-cases/composeBookingMessage.ts`; sem JavaScript, o botão abre o WhatsApp com a mensagem padrão.
+
 ## Editar conteúdo
 
 Telefone, Instagram, serviços, áreas atendidas, bio e perguntas frequentes ficam em

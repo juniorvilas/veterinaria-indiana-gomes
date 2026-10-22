@@ -109,6 +109,11 @@ const practice: HomeVisitPractice = {
       answer: 'Somente cães e gatos, de todas as idades.',
     },
     {
+      question: 'Você atende emergências?',
+      answer:
+        'O atendimento domiciliar é agendado. Em uma emergência grave, como atropelamento, convulsão ou dificuldade para respirar, leve o pet imediatamente a um hospital veterinário 24 horas.',
+    },
+    {
       question: 'Preciso agendar com antecedência?',
       answer:
         'Sim, todos os atendimentos são agendados pelo WhatsApp ou pelo Instagram. Quanto antes você chamar, mais opções de horário.',
@@ -117,11 +122,6 @@ const practice: HomeVisitPractice = {
       question: 'Como preparo a casa para a consulta?',
       answer:
         'Separe a carteira de vacinação e exames anteriores, se tiver. Para gatos, deixe o pet em um cômodo com a porta fechada pouco antes do horário, assim ele não se esconde em lugares difíceis.',
-    },
-    {
-      question: 'Vocês atendem emergências?',
-      answer:
-        'O atendimento domiciliar é agendado. Em uma emergência grave, como atropelamento, convulsão ou dificuldade para respirar, leve o pet imediatamente a um hospital veterinário 24 horas.',
     },
     {
       question: 'E se o meu pet precisar de exames de imagem ou cirurgia?',

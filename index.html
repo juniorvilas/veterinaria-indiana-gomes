@@ -13,9 +13,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" type="image/webp" href="/img/dra-indiana-gato-900.webp" />
+    <link rel="preload" as="image" type="image/webp" href="/img/dra-indiana-gato-765.webp" />
 
     <!--app-head-->
+
+    <!-- Ativa as entradas animadas só com JS; se o app não iniciar em 4s, mostra tudo -->
+    <script>
+      document.documentElement.classList.add('js')
+      setTimeout(function () {
+        if (!document.documentElement.dataset.revealReady) document.documentElement.classList.remove('js')
+      }, 4000)
+    </script>
   </head>
   <body>
     <div id="root"><!--app-html--></div>

@@ -4,3 +4,6 @@ dist-server
 *.tsbuildinfo
 .env
 .env.local
+.playwright-mcp/
+.taste-skill/
+.impeccable/

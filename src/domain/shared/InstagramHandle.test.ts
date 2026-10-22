@@ -11,6 +11,10 @@ describe('InstagramHandle', () => {
     },
   )
 
+  it('gera o link direto para o Direct', () => {
+    expect(InstagramHandle.create('@indianagomes_vet').directUrl).toBe('https://ig.me/m/indianagomes_vet')
+  })
+
   it('rejeita perfil com caracteres inválidos', () => {
     expect(() => InstagramHandle.create('@perfil inválido')).toThrow(/Instagram inválido/)
   })
