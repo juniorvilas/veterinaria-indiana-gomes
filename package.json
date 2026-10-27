@@ -2,6 +2,8 @@
   "name": "veterinaria-indiana-gomes",
   "private": true,
   "version": "1.0.0",
+  "license": "MIT",
+  "author": "Carlindo Junior",
   "type": "module",
   "scripts": {
     "dev": "vite",
